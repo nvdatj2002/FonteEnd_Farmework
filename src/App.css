@@ -1,5 +1,69 @@
+body a {
+  text-decoration: none;
+}
+.row>*{
+  display:  flex;
+  padding: 0;
+}
+.nav {
+  background-color:#0d6efd;
+  height: 50px;
+}
+.btn-primary {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  width: 80px;
+}
+.nav a {
+  text-decoration: none;
+  margin-right: 20px;
+  padding-left: 10px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #ffff
+}
+
+.contents {
+  width: 1260px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.grid {
+  width: 100%;
+  margin-top: 10px;
+}
+#ip {
+  margin-left: 20px;
+  width: 360px;
+}
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-left: -16px;
+  margin-right: -16px; */
+}   
+.grid__column {
+  width: 30%;
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.img {
+  width: 100%;
+}
+
 .App {
   text-align: center;
+  /* align-items: center; */
+  justify-content: center;
+  display: flex;
+}
+
+.content {
+  background-color: cadetblue;
+  width: 300px;
 }
 
 .App-logo {
@@ -32,6 +96,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

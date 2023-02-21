@@ -1,0 +1,194 @@
+.header Link {
+    color: #000;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    background-color: #ffff;
+    color: #000;
+    margin-top: 10px;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.logout {
+    background-color: #fff;
+    min-width: 160px;
+    min-height: 120px;
+    position: absolute;
+    right: 0;
+    box-shadow: 0.5px 1px 3px #999;
+
+
+}
+
+.logout ul {
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.logout ul li {
+    width: 100%;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    height: 38px;
+}
+
+.logout ul li:last-child {
+    // height: 34px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logout ul li:hover {
+    background-color: #9999;
+    cursor: pointer;
+    color: #f57224;
+}
+.logout ul li Link:hover{
+    color: #f57224;
+
+}
+.btn-logout {
+    position: relative;
+    z-index: 2;
+    height: 40px;
+}
+
+.btnLogout {
+    line-height: 40px;
+}
+
+.btnLogout:hover {
+    background-color: #9999;
+    color: #f57224;
+}
+
+.logout {
+    position: absolute;
+}
+
+.header-mid {
+    background-color: #ffff;
+}
+
+.color-icon {
+    color: #000;
+}
+
+.header-menu {
+    background-color: #ffff;
+}
+
+.login-register {
+    font-size: 16px;
+    color: #000;
+
+}
+
+.login-register:hover {
+    color: #7b93d3;
+}
+
+.header-nav-menu {
+    flex: 1;
+    position: relative;
+    height: 46px;
+    z-index: 1;
+    // margin: 10px 0 10px 0;
+}
+
+.header-nav-menu-list {
+    display: flex;
+    list-style: none;
+    margin-left: 164px;
+    padding-right: 20px;
+    // justify-content: flex-end;
+}
+
+.header-nav-menu-item {
+    min-width: 105px;
+    font-weight: 400;
+    height: 46px;
+    text-align: center;
+    margin: 0 26px;
+}
+
+.header-nav-menu-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 320;
+    line-height: 46px;
+    display: block;
+}
+
+.header-nav-menu-item :hover {
+    // background-color: #fafafa;
+    color: #f57224;
+}
+
+.header-nav-menu-item:hover .header-nav-submenu {
+    display: block;
+}
+
+// .header-nav-menu-item:hover {
+//     color: #f57224;
+// }
+/* submenu */
+.header-nav-submenu {
+    position: absolute;
+    box-shadow: 1px 2px 0px #999;
+    min-width: 160px;
+    display: none;
+    background-color: #fff;
+}
+
+.header-nav-submenu-list {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.header-nav-submenu-item {
+    list-style: none;
+    display: flex;
+    font-weight: 200;
+    border-bottom: 1px solid #e2e1e1;
+}
+
+.header-nav-submenu-item a:hover {
+    background-color: #fafafa;
+    color: #f57224;
+}
+
+.header-nav-submenu-item a {
+    padding-left: 20px;
+    display: block;
+    line-height: 40px;
+    flex: 1;
+    font-size: 1.2rem;
+    padding-right: 10px;
+    text-align: start !important;
+    margin: 0;
+}
+
+.totalQuantyliCart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 12px;
+    padding: 0px 6px;
+    border-radius: 50%;
+    background: #f57224;
+}

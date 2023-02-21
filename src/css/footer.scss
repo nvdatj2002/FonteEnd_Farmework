@@ -1,0 +1,21 @@
+.footer {
+    background-color: #e3e3e399;
+    margin-top: 60px;
+}
+.footer-top {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-top-content ul {
+    list-style: none;
+    font-size: 12px;
+}
+.footer-top-content ul li {
+    padding: 6px 0;
+}
+.footer-icon {
+    font-size: 28px;
+}
