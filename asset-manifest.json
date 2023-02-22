@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nvdatj2002/FonteEnd_Farmework.git/static/css/main.52b53229.css",
+    "main.js": "/nvdatj2002/FonteEnd_Farmework.git/static/js/main.fe9d6b3f.js",
+    "static/js/787.b7083242.chunk.js": "/nvdatj2002/FonteEnd_Farmework.git/static/js/787.b7083242.chunk.js",
+    "index.html": "/nvdatj2002/FonteEnd_Farmework.git/index.html",
+    "main.52b53229.css.map": "/nvdatj2002/FonteEnd_Farmework.git/static/css/main.52b53229.css.map",
+    "main.fe9d6b3f.js.map": "/nvdatj2002/FonteEnd_Farmework.git/static/js/main.fe9d6b3f.js.map",
+    "787.b7083242.chunk.js.map": "/nvdatj2002/FonteEnd_Farmework.git/static/js/787.b7083242.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52b53229.css",
+    "static/js/main.fe9d6b3f.js"
+  ]
+}
