@@ -24,7 +24,7 @@ const Cart = () => {
     );
   }
   return (
-    <Container>
+    <Container style={{ minHeight: "400px" }}>
 
       <Row>
         <Col>
@@ -35,7 +35,9 @@ const Cart = () => {
                 <th>Product</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Size</th>
                 <th>Quantity</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -45,27 +47,48 @@ const Cart = () => {
                     <td><img style={{ width: '50px' }} src={item.picture}></img></td>
                     <td>{item.name}</td>
                     <td>{parseVND(item.price)}</td>
+                    <td>{item.size}</td>
+
                     <td >
-                      <Button style={{ width: '20px' }}
+                      <button style={{
+                        width: '40px',
+                        height: '30px',
+                        justifyContent: 'center',
+                        background: '#fff',
+                        color: '#000',
+                        border: '1px solid #9999',
+                        marginRight: '6px',
+                        borderRadius: '3px'
+                      }}
                         color="danger"
                         onClick={() => {
-                          if(item.quantity == 1){
+                          if (item.quantity == 1) {
                             return
                           }
                           dispatch({
                             type: ACTION.UPDATE_ITEM,
                             payload: {
-                                id: item.id,
-                                typePayload: 'minus'
+                              id: item.id,
+                              typePayload: 'minus'
                             },
                           });
                         }}
                       >
                         -
-                      </Button>
+                      </button>
                       {item.quantity}
-                      <Button
-                        style={{ width: '20px' }}
+                      <button
+                        style={{
+                          width: '40px',
+                          height: '30px',
+                          justifyContent: 'center',
+                          background: '#fff',
+                          color: '#000',
+                          border: '1px solid #9999',
+                          marginLeft: '6px',
+                          borderRadius: '3px'
+
+                        }}
                         color="danger"
                         onClick={() => {
                           dispatch({
@@ -78,7 +101,7 @@ const Cart = () => {
                         }}
                       >
                         +
-                      </Button>
+                      </button>
                     </td>
                     <td>
                       <Button
@@ -98,34 +121,29 @@ const Cart = () => {
                   </tr>
                 ))}
             </tbody>
-            <tfoot>
-              <tr>
-                <td>
-                  SUM: <span>${parseVND(carts.sum)}</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <Button
-                    onClick={() => {
-                      const isLogin = localStorage.getItem("user");
-                      if (!isLogin) {
-                        //user chua login
-                        navigate("/login");
-                        return;
-                      }
-                      navigate("/checkout");
-                    }}
-                  >
-                    Checkout
-                  </Button>
-                </td>
-              </tr>
-            </tfoot>
           </Table>
         </Col>
       </Row>
-
+      <div style={{ float: 'right', display: 'flex', flexDirection: 'column' }}>
+        <span>Tổng tiền: <span>${parseVND(carts.sum)}</span></span>
+        <Button
+          onClick={() => {
+            const isLogin = localStorage.getItem("user");
+            if (!isLogin) {
+              //user chua login
+              navigate("/login");
+              return;
+            }
+            navigate("/checkout");
+          }}
+          style={{
+            height: '40px',
+            width: '200px '
+          }}
+        >
+          Mua hàng
+        </Button>
+      </div>
     </Container>
   );
 };

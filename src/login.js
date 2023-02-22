@@ -12,9 +12,9 @@ const Login = ({ navigation }) => {
 
   const onSubmit = async (data) => {
     const { username, password } = data
-    
+
     const url = `/profiles?username=${username}&password=${password}`
-    const response = await callAPI(url,'GET')
+    const response = await callAPI(url, 'GET')
 
     if (response) {
       const user = JSON.stringify(response)
@@ -63,8 +63,11 @@ const Login = ({ navigation }) => {
               && (<p className="text-danger" role="alert">password is required</p>)
             }
           </Form.Group>
-          <Link to={'/register'}>Bạn chưa có tài khoản?</Link>
-          <Button style={{float:'right'}} variant="primary" type="submit">
+          <div style={{display:'flex', flexDirection:'column'}}>
+            <Link to={'/register'}>Bạn chưa có tài khoản?</Link>
+            <Link style={{width:'100%'}} to={'/forgotpassword'}>Quên mật khẩu?</Link>
+          </div>
+          <Button style={{ float: 'right' }} variant="primary" type="submit">
             Login
           </Button>
         </Form>

@@ -95,3 +95,35 @@ ul li{
     font-size: 20px;
     padding: 0 80px;
 }
+.modal-content {
+    min-width: 1200px;
+}
+.modal-dialog {
+    margin-left: 200px !important;
+}
+.btnStatus{
+    background-color: #f57224 !important;
+}
+.btnCheckOutAndCancel {
+    width: 100px;
+    background-color: #0d6efd;
+    border: none;
+    color: white;
+    height: 40px;
+    margin: 10px 6px;
+    border-radius: 8px;
+}
+.btnCheckOutAndCancel:hover {
+    background-color: #0a58ca;
+}
+.quantity {
+    position: absolute;
+    color: #fff;
+    font-size: 12px;
+    background: #375e99;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    right: 0;
+    top: 2px;
+}

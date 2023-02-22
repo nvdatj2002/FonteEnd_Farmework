@@ -141,8 +141,9 @@ function reducer2(state, action) {
       localStorage.setItem('carts', dataSave)
       return data
     }
-    case ACTION.REMOVE_ALL: 
+    case ACTION.REMOVE_ALL:
       state.items = []
+      state.sum = 0
     default:
       return state;
   }
@@ -167,24 +168,23 @@ const Layout = (props) => {
     return carts
   }
   return (
-    <Container style={{minHeight : "800px"}}>
+    <div >
       <cartContext.Provider value={{
         cartReducer: state,
         cartDispatch: dispatch
       }}>
-
         <searchContext.Provider
           value={{
             searchReducer: stateSearch,
             dispatchSearch: dispatchSearch
           }}>
-          <Header auth={userLogin}
-          />
-          {props.children }
-          <Footer/>
+          <Header auth={userLogin}/>
+          {props.children}
+          
+          <Footer />
         </searchContext.Provider>
       </cartContext.Provider>
-    </Container>
+    </div>
   )
 }
 export default Layout

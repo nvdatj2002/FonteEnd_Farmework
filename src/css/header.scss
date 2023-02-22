@@ -192,3 +192,9 @@
     border-radius: 50%;
     background: #f57224;
 }
+.logout {
+    display: none;
+}
+.btn-logout-hover:hover .logout{
+    display: block;
+}

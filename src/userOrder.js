@@ -4,28 +4,36 @@ import { useEffect } from "react";
 import callAPI from "./api/axios";
 import { parseVND } from "./helper";
 import DetailOrder from "./detailOrder";
+import { useLocation } from "react-router-dom";
 import './css/style.scss'
-import { Spinner } from 'react-bootstrap';
-const Order = () => {
+const UserOrder = () => {
     const [products, setProducts] = useState([]);
-    const [search, setSearch] = useState('')
+    // const [productstConfirm, setProductsConfirm] = useState([]);
+    // const [productstNotConfirm, setProductsNotConfirm] = useState([]);
+    // const [productsCancel, setProductsCancel] = useState([]);
     const [isOpenDetail, setOpenDetail] = useState(false)
     const [productOrder, setProducOrder] = useState(null);
     const [statusOrder, setStatusOrder] = useState('1')
+    const [userLogin, setUserLogin] = useState(JSON.parse(localStorage.getItem("user")))
+    const location = useLocation();
 
     useEffect(() => {
         fectBlog()
     }, [statusOrder])
-
+    useEffect(() => {
+        setUserLogin(JSON.parse(localStorage.getItem("user")))
+    }, [location])
     const fectBlog = async () => {
         let url = `/order?status=1`
         if (statusOrder === '2') {
             url = `/order?status=2`
-        }if (statusOrder === '0') {
+        } if (statusOrder === '0') {
             url = `/order?status=0`
         }
         const result = await callAPI(url, 'GET')
+        
         setProducts(result)
+
     }
 
     const removeFromCart = (id) => {
@@ -83,26 +91,13 @@ const Order = () => {
         }
     }
 
-
-
-    const getName = (items) => {
-        let name
-        items.forEach((item) => {
-            name = item.name
-        })
-        return name
-    }
-    if (products.length === 0) {
-        return (
-            <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
-        );
-    }
     return (
-        <Container style={{marginTop: "20px"}}>
+        <Container style={{ marginTop: "20px" }}>
+            <h2>
+                Đơn hàng
+            </h2>
             <Row>
-            <div
+                <div
                     style={{
                         marginBottom: '20px',
                         backgroundColor: '#eeeeee',
@@ -148,8 +143,10 @@ const Order = () => {
                             border: '1px solid #9999',
                             position: 'relative',
                             color: '#000'
+
                         }} >
                         <span className="quantity">{}</span>
+
                         Đơn đã huỷ</Button>
                 </div >
                 <Col>
@@ -191,16 +188,17 @@ const Order = () => {
                                             </svg>
                                         </Button>
                                         {statusOrder === '1' && <Button
-                                            color="danger"
+                                            color="red"
+                                            style={{ background: 'red', border: 'none' }}
                                             onClick={
                                                 () => {
-                                                    item.status = 2
+                                                    item.status = 0
                                                     handleUpdate(item.id, item)
                                                 }
                                             }
                                         >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-lg" viewBox="0 0 16 16">
-                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
+                                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                                             </svg>
                                         </Button>}
                                     </td>
@@ -214,4 +212,4 @@ const Order = () => {
         </Container >
     );
 };
-export default Order;
+export default UserOrder;

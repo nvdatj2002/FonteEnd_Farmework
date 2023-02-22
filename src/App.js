@@ -18,7 +18,7 @@ function App() {
   const [page, setPage] = useState(1)
   const limit = 8
   const [products, setProducts] = useState([])
-  
+
   const searchs = useContext(searchContext);
   useEffect(() => {
     fectBlog()
@@ -73,9 +73,8 @@ function App() {
     );
   }
   return (
-    <Container style={{ padding: 0 }}>
+    <Container style={{ padding: 0, margin: '0 auto' }}>
       <Product
-        
       />
     </Container>
 

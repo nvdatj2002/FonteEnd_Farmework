@@ -11,6 +11,8 @@ import Admin from "./admin";
 import Checkout from "./checkout";
 import { Navigate } from "react-router-dom";
 import Order from "./order";
+import UserOrder from "./userOrder";
+import ForgotPassword from "./forgotPassword";
 const RouterView = () => {
   // const Router = createBrowserRouter([
   //   {
@@ -40,6 +42,9 @@ const RouterView = () => {
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/cart", element: <Cart /> },
+      { path: "/myorder", element: <UserOrder /> },
+      { path: "/forgotpassword", element: <ForgotPassword /> },
+
       {
         path: "/admin",
         element: isAuth && isAuth[0].role == 'admin' ? <Admin /> : <Navigate to={'/'} />

@@ -60,11 +60,11 @@ const Admin = () => {
     const handleSort = async () => {
         let url = '/product?_sort=price&_order=asc'
         sort == 'down' ? setSort('up') : setSort('down')
-        if(sort === 'down'){
+        if (sort === 'down') {
             url = '/product?_sort=price&_order=desc'
         }
-        const responsive = await callAPI(url,"GET")
-        if(responsive) {
+        const responsive = await callAPI(url, "GET")
+        if (responsive) {
             setProducts(responsive)
         }
     }
@@ -72,9 +72,9 @@ const Admin = () => {
     return (
         <Container>
             <Row>
-                <Col>
+                <div>
                     <h2>Products </h2>
-                    <Button
+                    <Button style={{ width: '100px'  , height: '40px', marginLeft:'20px'}}
                         color="danger"
                         onClick={() => {
                             setOpen(true)
@@ -84,6 +84,8 @@ const Admin = () => {
                     >
                         Create
                     </Button>
+                </div>
+                <Col>
                     <Table>
                         <thead>
                             <tr>
@@ -108,7 +110,7 @@ const Admin = () => {
 
                                     <td>{parseVND(item.price)}</td>
                                     <td>{item.quantity}</td>
-                                    <td>
+                                    <td style={{ width:'200px'}}>
                                         <Button style={{
                                             marginRight: '10px'
                                         }}

@@ -48,44 +48,43 @@ const Register = () => {
         <h3>Register</h3>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Họ và tên * </Form.Label>
             <Form.Control
               name="name"
               type="text"
               {...register("name", { required: true })}
-              placeholder="Enter name"
+              placeholder="Nguyễn Văn A"
             />
             {
               errors?.name?.type === 'required'
-              && (< p className="text-danger" role="alert">Name is required</p>)
+              && (< p className="text-danger" role="alert">Tên không được bỏ trống</p>)
             }
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Username</Form.Label>
+            <Form.Label>Tài khoản</Form.Label>
             <Form.Control
               name="username"
               type="text"
               {...register("username", { required: true })}
-              placeholder="Enter name"
+              placeholder="Tên tài khoản"
             />
             {
               errors?.username?.type === 'required'
-              && (< p className="text-danger" role="alert">Username is required</p>)
+              && (< p className="text-danger" role="alert">Tài khoản không được bỏ trống</p>)
             }
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Mật khẩu</Form.Label>
             <Form.Control
               name="password"
               type="password"
               control={control}
               // onChange={OnchangeInput}
-              placeholder="password"
+              placeholder="Mật khẩu"
               rows={3}
               {...register("password", {
-                required: 'password is required',
-                message: 'kksoo'
+                required: 'Mật khẩu không được bỏ trống ',
               })}
               aria-invalid={errors.password ? "true" : "false"}
             />
@@ -99,11 +98,12 @@ const Register = () => {
             <Form.Control
               name="email"
               type="text"
+              placeholder="xyz@gmail.com"
               {...register("mail", {
-                required: "Email Address is required",
+                required: "Email không đươc bỏ trống",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "invalid email address"
+                  message: "Email không đúng"
                 }
               })}
               aria-invalid={errors.mail ? "true" : "false"}

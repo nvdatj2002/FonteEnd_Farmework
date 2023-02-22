@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import './App.css';
 import './css/header.scss'
 import { useContext, useState } from "react";
@@ -52,13 +52,43 @@ const Header = ({ auth }) => {
         if (auth) {
             return (
                 <div className="btn-logout" >
-                    <button className="btnLogout"
-                        style={{ background: "#fff", border: 'none' }}
-                        onClick={() => { setShow(!show) }}>
-                        <BsFillPersonFill className="color-icon" style={{ marginRight: '4px' }} />
-                        {auth[0].name}
-                    </button>
-                    {show && <ListProFiles />}
+                    <div className="btn-logout-hover" >
+                        <button className="btnLogout"
+                            style={{ background: "#fff", border: 'none' }}
+                            onClick={() => { setShow(!show) }}>
+                            <BsFillPersonFill className="color-icon" style={{ marginRight: '4px' }} />
+                            {auth[0].name}
+                        </button>
+                        <div className="logout">
+                            <ul >
+                                <li>
+                                    <Link style={{
+                                        display: 'block',
+                                        color: '#000',
+                                        fontSize: '14px',
+                                        fontWeight: '400',
+                                        padding: '0',
+                                        lineHeight: '40px'
+                                    }} to={'/'}>Thông tin cá nhân</Link>
+                                </li>
+                                <li >
+                                    <Link style={{
+                                        display: 'block',
+                                        color: '#000',
+                                        fontSize: '14px',
+                                        fontWeight: '400',
+                                        padding: 0,
+                                        lineHeight: '40px'
+                                    }} to={'/myorder'}>Đơn hàng của tôi</Link>
+                                </li>
+                                <li onClick={logout}>
+                                    Đăng xuất
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    {/* {show && <ListProFiles />} */}
                 </div>
             )
         } else {
@@ -80,20 +110,20 @@ const Header = ({ auth }) => {
                 <ul >
                     <li>
                         <Link style={{
-                            display:'block',
+                            display: 'block',
                             color: '#000',
                             fontSize: '14px',
-                            fontWeight: '400', 
+                            fontWeight: '400',
                             padding: '0',
                             lineHeight: '40px'
                         }} to={'/'}>Thông tin cá nhân</Link>
                     </li>
                     <li >
                         <Link style={{
-                            display:'block',
+                            display: 'block',
                             color: '#000',
                             fontSize: '14px',
-                            fontWeight:'400',
+                            fontWeight: '400',
                             padding: 0,
                             lineHeight: '40px'
                         }} to={'/'}>Đơn hàng của tôi</Link>
@@ -117,7 +147,7 @@ const Header = ({ auth }) => {
                 height: '40px'
             }}>
             </div >
-            <Nav className="header-top"
+            <Nav className="header-top" style={{ width: '90%', margin: '0 auto', padding: '0 20px' }}
                 onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
                 activeKey="/" >
                 <div style={{ textAlign: 'center', display: 'flex', alignItems: "center" }}>
@@ -177,7 +207,7 @@ const Header = ({ auth }) => {
                 <Canvas show={showCanvas} handleClose={() => setShowCanvas(false)} />
             </Nav>
 
-            <Nav className="header-nav-menu" style={{ backgroundColor: '#ffff', marginBottom: '20px' }}>
+            <Nav className="header-nav-menu" style={{ backgroundColor: '#ffff', margin: '0 auto', width: '90%' }}>
 
                 <ul className="header-nav-menu-list" >
                     {
